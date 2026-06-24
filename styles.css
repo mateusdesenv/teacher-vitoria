@@ -320,6 +320,7 @@ i, svg { color: var(--gold); stroke-width: 1.7; flex-shrink: 0; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  max-width: 100%;
 }
 
 .testimonial-track article {
@@ -485,11 +486,57 @@ details p { color: rgba(255,255,255,.72); margin-top: 12px; }
   .cred-grid article, .audience-grid article { border-left: 0; border-top: 1px solid #ddd; }
   .audience-grid { grid-template-columns: repeat(2, 1fr); }
   .method-grid { grid-template-columns: repeat(2, 1fr); }
-  .testimonial-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; }
-  .testimonial-track article { min-width: min(84vw, 360px); scroll-snap-align: center; }
+  .testimonial-track {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x;
+    padding: 0 18px 16px 0;
+    cursor: grab;
+  }
+  .testimonial-track.dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+  }
+  .testimonial-track article {
+    flex: 0 0 min(82vw, 340px);
+    min-width: min(82vw, 340px);
+    scroll-snap-align: start;
+  }
+  .testimonial-track::-webkit-scrollbar {
+    display: none;
+  }
+  .testimonial-track {
+    scrollbar-width: none;
+  }
   .price-card.featured { transform: none; }
   .cta-card { flex-direction: column; align-items: flex-start; padding: 34px 24px; }
   .footer-grid { grid-template-columns: 1fr; }
+
+  .footer {
+    text-align: center;
+  }
+
+  .footer-grid {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .footer nav,
+  .footer-contact {
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .footer small {
+    text-align: center;
+  }
 }
 
 @media (max-width: 560px) {
