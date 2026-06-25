@@ -297,7 +297,7 @@ i, svg { color: var(--gold); stroke-width: 1.7; flex-shrink: 0; }
 
 .method-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid rgba(255,255,255,.12);
   border-left: 1px solid rgba(255,255,255,.12);
   margin-top: 38px;
