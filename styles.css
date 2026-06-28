@@ -324,6 +324,9 @@ i, svg { color: var(--gold); stroke-width: 1.7; flex-shrink: 0; }
 }
 
 .testimonial-track article {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background: rgba(255,255,255,.035);
   border: 1px solid rgba(255,255,255,.12);
   border-radius: 20px;
@@ -334,6 +337,7 @@ i, svg { color: var(--gold); stroke-width: 1.7; flex-shrink: 0; }
 
 .testimonial-track strong {
   display: block;
+  flex: 1;
   color: rgba(255,255,255,.86);
   font-weight: 600;
   min-height: 120px;
@@ -348,7 +352,7 @@ i, svg { color: var(--gold); stroke-width: 1.7; flex-shrink: 0; }
   line-height: .5;
 }
 
-.testimonial-track div { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+.testimonial-track div { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 16px; }
 .testimonial-track img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
 
 .dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
