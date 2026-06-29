@@ -557,21 +557,90 @@ details p { color: rgba(255,255,255,.72); margin-top: 12px; }
 
 @media (max-width: 560px) {
 
-  .hero {
-    min-height: 100svh;
-    background:
-      linear-gradient(90deg, rgba(7, 10, 17, .99) 0%, rgba(7, 10, 17, .94) 55%, rgba(7, 10, 17, .62) 100%),
-      linear-gradient(180deg, rgba(7, 10, 17, .18) 0%, rgba(7, 10, 17, .92) 100%),
-      url("assets/teacher-vitoria-hero.webp") 72% center / cover no-repeat;
-  }
   :root { --container: min(100% - 24px, 1160px); }
+
+  .hero {
+    min-height: auto;
+    padding: 116px 0 0;
+    align-items: start;
+    background:
+      radial-gradient(circle at 18% 12%, rgba(200,155,60,.13), transparent 34%),
+      linear-gradient(180deg, #0B0D12 0%, #080A0F 100%);
+  }
+
+  .hero-grid {
+    gap: 0;
+  }
+
+  .hero-copy {
+    position: relative;
+    z-index: 2;
+    padding-bottom: 10px;
+  }
+
   .btn { width: 100%; }
   h1 { font-size: 3.25rem; }
-  .hero-copy p { font-size: 1rem; }
-  .hero { background-position: 72% center; }
+  .hero-copy p { font-size: 1rem; margin: 22px 0 28px; }
+  .hero-features { gap: 14px; margin-bottom: 30px; }
   .teacher-cut { width: 100%; max-width: 420px; }
+
+  .hero-visual {
+    display: block;
+    position: relative;
+    width: 100vw;
+    min-height: 500px;
+    height: min(68vh, 620px);
+    margin-top: 18px;
+    margin-left: calc(50% - 50vw);
+    background: url("assets/teacher-vitoria-hero.webp") 69% top / cover no-repeat;
+    overflow: hidden;
+  }
+
+  .hero-visual::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      #080A0F 0%,
+      rgba(8, 10, 15, .96) 8%,
+      rgba(8, 10, 15, .72) 26%,
+      rgba(8, 10, 15, .34) 48%,
+      rgba(8, 10, 15, 0) 70%
+    );
+    pointer-events: none;
+  }
+
+  .hero-visual::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 38%;
+    background: linear-gradient(180deg, transparent 0%, #080A0F 100%);
+    pointer-events: none;
+  }
+
   .hero-visual .flag { display: none; }
-  .about, .method, .pricing, .faq { padding: 72px 0; }
+
+  .about {
+    position: relative;
+    z-index: 2;
+    padding: 0 0 72px;
+  }
+
+  .about-grid {
+    gap: 36px;
+  }
+
+  .about-photo {
+    margin-top: calc(-1 * min(190px, 39vw));
+    z-index: 2;
+  }
+
+  .circle-photo {
+    width: min(380px, 78vw);
+  }
+
+  .method, .pricing, .faq { padding: 72px 0; }
   .audience-grid, .method-grid { grid-template-columns: 1fr; }
   .stat-badge { right: 0; bottom: -10px; }
   .price strong { font-size: 2.35rem; }
