@@ -122,16 +122,32 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .menu-toggle { display: none; }
 
 .hero {
+  position: relative;
   min-height: 100vh;
   padding: 136px 0 84px;
   display: grid;
   align-items: center;
   overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(7, 10, 17, .98) 0%, rgba(7, 10, 17, .92) 9%, rgba(7, 10, 17, .54) 3%, rgba(7, 10, 17, .12) 100%),
+    linear-gradient(180deg, rgba(7, 10, 17, .01) 0%, rgba(7, 10, 17, .86) 100%),
+    url("assets/teacher-vitoria-hero.webp") center right / cover no-repeat;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 170px;
+  background: linear-gradient(180deg, transparent 0%, var(--dark) 100%);
+  pointer-events: none;
 }
 
 .hero-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
-  grid-template-columns: 1fr .95fr;
+  grid-template-columns: minmax(0, 650px) 1fr;
   align-items: center;
   gap: clamp(36px, 6vw, 88px);
 }
@@ -184,11 +200,7 @@ i, svg { color: var(--gold); stroke-width: 1.7; flex-shrink: 0; }
 .actions { display: flex; flex-wrap: wrap; gap: 14px; }
 
 .hero-visual {
-  position: relative;
   min-height: 620px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .hero-visual .flag {
@@ -482,9 +494,9 @@ details p { color: rgba(255,255,255,.72); margin-top: 12px; }
     border: 1px solid rgba(255,255,255,.08);
   }
   .nav.open { display: flex; }
-  .hero { padding-top: 116px; }
+  .hero { padding-top: 116px; background-position: 70% center; }
   .hero-grid, .about-grid, .pricing-grid { grid-template-columns: 1fr; }
-  .hero-visual { min-height: 520px; }
+  .hero-visual { display: none; }
   .hero-copy { text-align: left; }
   .hero-features, .cred-grid { grid-template-columns: 1fr; }
   .cred-grid article, .audience-grid article { border-left: 0; border-top: 1px solid #ddd; }
@@ -544,11 +556,19 @@ details p { color: rgba(255,255,255,.72); margin-top: 12px; }
 }
 
 @media (max-width: 560px) {
+
+  .hero {
+    min-height: 100svh;
+    background:
+      linear-gradient(90deg, rgba(7, 10, 17, .99) 0%, rgba(7, 10, 17, .94) 55%, rgba(7, 10, 17, .62) 100%),
+      linear-gradient(180deg, rgba(7, 10, 17, .18) 0%, rgba(7, 10, 17, .92) 100%),
+      url("assets/teacher-vitoria-hero.webp") 72% center / cover no-repeat;
+  }
   :root { --container: min(100% - 24px, 1160px); }
   .btn { width: 100%; }
   h1 { font-size: 3.25rem; }
   .hero-copy p { font-size: 1rem; }
-  .hero-visual { min-height: 430px; }
+  .hero { background-position: 72% center; }
   .teacher-cut { width: 100%; max-width: 420px; }
   .hero-visual .flag { display: none; }
   .about, .method, .pricing, .faq { padding: 72px 0; }
